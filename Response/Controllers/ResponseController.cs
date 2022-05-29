@@ -6,7 +6,7 @@ namespace ResponseService.Controllers
     [ApiController]
     public class ResponseController : ControllerBase
     {
-        // calling the API (/api/response) with a number - id 
+        // calling the API (/api/response) with a number - successPercent 
         // between 0 and 100 (over 100 is always successful)
         // the higher the number is the more likely the response is to be successful
         [Route("{successPercent}")]
