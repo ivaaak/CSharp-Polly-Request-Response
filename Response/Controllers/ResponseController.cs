@@ -6,12 +6,16 @@ namespace ResponseService.Controllers
     [ApiController]
     public class ResponseController : ControllerBase
     {
-        [Route("{id}")]
-        public ActionResult GiveAResponse(int id)
+        // calling the API (/api/response) with a number - id 
+        // between 0 and 100 (over 100 is always successful)
+        // the higher the number is the more likely the response is to be successful
+        [Route("{successPercent}")]
+        public ActionResult GiveAResponse(int successPercent)
         {
             Random rnd = new Random();
             int rndInteger = rnd.Next(1, 101);
-            if(rndInteger >= id )
+            
+            if (rndInteger >= successPercent)
             {
                 Console.WriteLine($"-> Return 500");
                 return StatusCode(StatusCodes.Status500InternalServerError);
@@ -22,6 +26,8 @@ namespace ResponseService.Controllers
                 return Ok();
             }
         }
+        
+        // /api/response/90 gives ~~ 90% Ok responses
+        // /api/response/10 gives ~~ 10% Ok responses
     }
 }
-
