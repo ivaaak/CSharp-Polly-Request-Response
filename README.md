@@ -1,15 +1,15 @@
 # CSharp Polly Request Response
 
-Polly is a . NET library that provides resilience and transient-fault handling capabilities.
+Polly is a .NET library that provides resilience and transient-fault handling capabilities.
 
-This demo implements Polly policies such as Retry and Timeout. It consists of 2 API apps which create requests and responses.
+This demo implements Polly policies such as Retry and Timeout. It consists of 2 .NET API apps which create requests and responses.
 
 
 # Request API:
 
-Uses an HTTP Client to call the ResponseAPI and if the request isnt successful it executes the implemented Polly retry policies.
+Uses an HTTP Client to call the ResponseAPI and if the request isnt successful it executes the implemented Polly retry/timeout policies.
 
-Examples of the Polly retry/result policies used:
+Examples of the Polly retry/timeout/polling policies used:
 ```
 ImmediateHttpRetry = Policy
     .HandleResult<HttpResponseMessage>(res => !res.IsSuccessStatusCode)
