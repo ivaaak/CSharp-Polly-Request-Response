@@ -1,4 +1,4 @@
-# CSharp Polly Request Response
+# Polly Transient Fault Handling -  Request/Response Demo API Project
 
 Polly is a .NET library that provides resilience and transient-fault handling capabilities.
 
